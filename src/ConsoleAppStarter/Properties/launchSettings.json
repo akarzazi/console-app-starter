@@ -1,0 +1,9 @@
+{
+    "profiles": {
+        "ConsoleAppStarter": {
+            "commandName": "Project",
+            "commandLineArgs": "--ConfigFolderPath \"_sample-config.dev\" ",
+            "nativeDebugging": false
+        }
+    }
+}

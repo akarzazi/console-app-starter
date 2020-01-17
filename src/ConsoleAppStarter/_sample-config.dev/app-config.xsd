@@ -1,0 +1,60 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:attribute name="MyEnum" >
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="EnumValue1"/>
+        <xs:enumeration value="EnumValue2"/>
+        <xs:enumeration value="EnumValue3"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+
+  <xs:element name="Configuration">
+    <xs:complexType>
+      <xs:sequence>
+        
+        <xs:element name="Logging">
+          <xs:annotation>
+            <xs:documentation>Customize logs file path</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:attribute name="LogPath" type="xs:string" use="required"/>
+          </xs:complexType>
+        </xs:element>
+        
+        <xs:element name="ConfigElement">
+          <xs:complexType>
+            <xs:attribute ref="MyEnum" use="optional" />
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="ConfigWithOptions">
+          <xs:complexType>
+            <xs:choice>
+              <xs:element name="Option1" />
+              <xs:element name="Option2">
+                <xs:complexType>
+                  <xs:attribute name="RequiredAttribute" type="xs:string" use="required"/>
+                  <xs:attribute name="OptionalAttribute" type="xs:string" use="optional"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:choice>
+          </xs:complexType>
+        </xs:element>
+        
+        <xs:element name="ListContainer" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ListItem" maxOccurs="unbounded" minOccurs="1">
+                <xs:complexType>
+                  <xs:attribute name="Name" type="xs:string" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

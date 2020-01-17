@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="app-config.xsd">
+
+  <!-- Customize logs file path-->
+  <Logging  LogPath="Logs"/>
+
+  <ConfigElement MyEnum="EnumValue1" />
+
+  <ConfigWithOptions >
+    <!--<Option1 />-->
+    <Option2 RequiredAttribute="some-value" OptionalAttribute="optional-value" />
+  </ConfigWithOptions>
+  
+  <ListContainer>
+    <ListItem Name="value1" />
+    <ListItem Name="value2" />
+    <ListItem Name="value3" />
+  </ListContainer>
+
+</Configuration>
